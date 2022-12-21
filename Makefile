@@ -6,9 +6,15 @@ EXE := $(BIN_DIR)/game
 SRC := $(wildcard $(SRC_DIR)/*.c)
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-CPPFLAGS := -Iinclude -MMD -MP
+SDL_DIR := lib/SDL
+SDL_BUILD_DIR := $(SDL_DIR)/build
+SDL_LIB := $(SDL_BUILD_DIR)/libSDL3.so 
+SDL_SRC := $(SDL_BUILD_DIR)/src
+SDL_INC := $(SDL_DIR)/include
+
+CPPFLAGS := -Iinclude -I$(SDL_INC) -MMD -MP
 CFLAGS := -Wall
-LDFLAGS := -Llib
+LDFLAGS := -Llib -L$(SDL_LIB)
 LDLIBS := -lm
 
 .PHONY: all clean

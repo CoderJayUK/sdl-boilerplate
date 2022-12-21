@@ -1,0 +1,2 @@
+#define GAME_HEIGHT 640
+#define GAME_WIDTH 480
